@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Splash</title>
 
-  <!-- Tailwind via CDN (no build) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React 18 + ReactDOM (production UMD builds) -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- While debugging, use the dev builds for clearer errors -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-  <!-- Babel Standalone to transpile JSX in the browser -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="min-h-screen bg-gray-50 text-gray-900">
   <div id="root"></div>
 
-  <!-- Load your JSX files in order -->
+  <!-- Load App first (defines HomePage) -->
   <script type="text/babel" src="./app.jsx"></script>
+  <!-- Then mount it -->
   <script type="text/babel" src="./index.jsx"></script>
 </body>
 </html>
