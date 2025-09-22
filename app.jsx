@@ -1,9 +1,5 @@
-function HomePage() {
-  return (
-    <div className="p-8">
-      // app.jsx  — no imports/exports, works with index.html + Babel Standalone
+// app.jsx — browser-friendly (no imports/exports)
 
-// Minimal Button component
 function Button({ className = "", children, ...props }) {
   return (
     <button
@@ -18,7 +14,6 @@ function Button({ className = "", children, ...props }) {
   );
 }
 
-// Tiny helper for fake submit UX
 function fakeAction(setter, okText = "Thanks! You’re on the list.") {
   setter("Submitting…");
   setTimeout(() => setter(okText), 800);
@@ -40,7 +35,8 @@ function HomePage() {
               Software That Works as Hard as You Do
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
-              Custom software that streamlines operations, lowers costs, and helps SMBs compete head-to-head with the big players.
+              Custom software that streamlines operations, lowers costs, and helps SMBs
+              compete head-to-head with the big players.
             </p>
             <Button
               onClick={() => fakeAction(setHeroMsg, "We’ll reach out shortly!")}
@@ -66,11 +62,15 @@ function HomePage() {
           <div>
             <h2 className="text-3xl font-bold mb-6">The Cost of Outdated Systems</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Lost hours, mounting overhead, and frustrated clients all add up. Most small to mid-sized businesses are stuck with patchwork tools that don’t talk to each other—and it shows in the bottom line.
+              Lost hours, mounting overhead, and frustrated clients all add up. Most
+              small to mid-sized businesses are stuck with patchwork tools that don’t
+              talk to each other—and it shows in the bottom line.
             </p>
           </div>
           <div className="bg-gray-100 rounded-2xl h-80 flex items-center justify-center shadow-md">
-            <span className="text-gray-400 px-6 text-center">[Image: Stressed manager juggling multiple disconnected apps/spreadsheets]</span>
+            <span className="text-gray-400 px-6 text-center">
+              [Image: Stressed manager juggling multiple disconnected apps/spreadsheets]
+            </span>
           </div>
         </div>
       </section>
@@ -79,12 +79,17 @@ function HomePage() {
       <section className="py-24 px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="bg-white rounded-2xl shadow-md h-80 flex items-center justify-center border border-gray-200">
-            <span className="text-gray-400 px-6 text-center">[Dashboard mockup showing cost savings + efficiency metrics]</span>
+            <span className="text-gray-400 px-6 text-center">
+              [Dashboard mockup showing cost savings + efficiency metrics]
+            </span>
           </div>
           <div>
             <h2 className="text-3xl font-bold mb-6">Software That Pays for Itself</h2>
             <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-              At Zaragoza Partners, we design and deliver SaaS applications built for measurable ROI. From automated dispatch to HIPAA-compliant healthcare workflows to Shopify integrations, every feature is engineered to cut waste, improve delivery speed, and increase profit.
+              At Zaragoza Partners, we design and deliver SaaS applications built for
+              measurable ROI. From automated dispatch to HIPAA-compliant healthcare
+              workflows to Shopify integrations, every feature is engineered to cut
+              waste, improve delivery speed, and increase profit.
             </p>
           </div>
         </div>
@@ -101,12 +106,16 @@ function HomePage() {
           <div>
             <div className="h-10 w-10 mx-auto mb-4">☁️</div>
             <h3 className="font-semibold text-xl mb-2">Seamless Scaling</h3>
-            <p className="text-gray-600">A platform that grows with your business, without costly re-platforming.</p>
+            <p className="text-gray-600">
+              A platform that grows with your business, without costly re-platforming.
+            </p>
           </div>
           <div>
             <div className="h-10 w-10 mx-auto mb-4">🔒</div>
             <h3 className="font-semibold text-xl mb-2">Enterprise-Level Security</h3>
-            <p className="text-gray-600">Compliance and data protection built in from day one.</p>
+            <p className="text-gray-600">
+              Compliance and data protection built in from day one.
+            </p>
           </div>
         </div>
       </section>
@@ -133,14 +142,17 @@ function HomePage() {
       <section className="py-24 px-8 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="bg-slate-50 rounded-2xl shadow-md h-80 flex items-center justify-center border border-gray-200">
-            <span className="text-gray-400 px-6 text-center">[Bar chart showing cost savings before/after automation]</span>
+            <span className="text-gray-400 px-6 text-center">
+              [Bar chart showing cost savings before/after automation]
+            </span>
           </div>
           <div>
             <h2 className="text-3xl font-bold mb-6">Logistics Firm Saves $200k Annually</h2>
             <p className="text-gray-700 mb-6">
-              We helped a 20-person logistics company automate dispatching and resource allocation,
-              cutting annual operating costs by <span className="font-semibold">$200,000</span> while
-              improving service delivery speed.
+              We helped a 20-person logistics company automate dispatching and resource
+              allocation, cutting annual operating costs by{" "}
+              <span className="font-semibold">$200,000</span> while improving service
+              delivery speed.
             </p>
             <Button
               className="bg-blue-600 hover:bg-blue-700 text-white shadow-md"
@@ -156,17 +168,23 @@ function HomePage() {
       {/* Tech Stack & Methodology */}
       <section className="py-24 px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">Enterprise-Grade Tools, Tailored for SMB Agility</h2>
+          <h2 className="text-3xl font-bold mb-12">
+            Enterprise-Grade Tools, Tailored for SMB Agility
+          </h2>
           <div className="grid md:grid-cols-3 gap-12 text-center">
             <div>
               <div className="h-10 w-10 mx-auto mb-4">🧠</div>
               <h3 className="font-semibold text-lg mb-2">Modern Frameworks</h3>
-              <p className="text-gray-600">React, Node.js, Next.js, and TypeScript for reliable, modern apps.</p>
+              <p className="text-gray-600">
+                React, Node.js, Next.js, and TypeScript for reliable, modern apps.
+              </p>
             </div>
             <div>
               <div className="h-10 w-10 mx-auto mb-4">🗄️</div>
               <h3 className="font-semibold text-lg mb-2">Scalable Infrastructure</h3>
-              <p className="text-gray-600">AWS, Kubernetes, and serverless architectures built to scale.</p>
+              <p className="text-gray-600">
+                AWS, Kubernetes, and serverless architectures built to scale.
+              </p>
             </div>
             <div>
               <div className="h-10 w-10 mx-auto mb-4">🛡️</div>
@@ -181,22 +199,22 @@ function HomePage() {
       <section className="py-24 px-8 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-12">Meet the Team</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4"></div>
-              <h3 className="font-semibold text-lg">Alex Zaragoza</h3>
-              <p className="text-gray-600">Founder & CEO</p>
-            </div>
-            <div className="text-center">
-              <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4"></div>
-              <h3 className="font-semibold text-lg">Maria Lopez</h3>
-              <p className="text-gray-600">Head of Engineering</p>
-            </div>
-            <div className="text-center">
-              <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4"></div>
-              <h3 className="font-semibold text-lg">James Patel</h3>
-              <p className="text-gray-600">Product Strategy Lead</p>
-            </div>
+        </div>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+          <div className="text-center">
+            <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4"></div>
+            <h3 className="font-semibold text-lg">Alex Zaragoza</h3>
+            <p className="text-gray-600">Founder & CEO</p>
+          </div>
+          <div className="text-center">
+            <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4"></div>
+            <h3 className="font-semibold text-lg">Maria Lopez</h3>
+            <p className="text-gray-600">Head of Engineering</p>
+          </div>
+          <div className="text-center">
+            <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4"></div>
+            <h3 className="font-semibold text-lg">James Patel</h3>
+            <p className="text-gray-600">Product Strategy Lead</p>
           </div>
         </div>
       </section>
@@ -205,7 +223,8 @@ function HomePage() {
       <section className="py-24 px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <blockquote className="text-2xl font-medium text-gray-800 mb-6 leading-relaxed">
-            “Zaragoza Partners delivered a SaaS platform that transformed our operations. The ROI was clear within 6 months.”
+            “Zaragoza Partners delivered a SaaS platform that transformed our operations.
+            The ROI was clear within 6 months.”
           </blockquote>
         </div>
       </section>
@@ -216,7 +235,8 @@ function HomePage() {
           Ready to see software that works for your bottom line?
         </h2>
         <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-200">
-          Enter your mobile number below to get started. We’ll send you updates and a link to schedule your strategy call.
+          Enter your mobile number below to get started. We’ll send you updates and a
+          link to schedule your strategy call.
         </p>
         <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6">
           <input
@@ -232,7 +252,9 @@ function HomePage() {
             Opt-In via SMS
           </Button>
           <p className="text-xs text-gray-600 mt-4">
-            By providing your number, you agree to receive SMS messages from Zaragoza Partners. Message and data rates may apply. Text STOP at any time to unsubscribe.
+            By providing your number, you agree to receive SMS messages from Zaragoza
+            Partners. Message and data rates may apply. Text STOP at any time to
+            unsubscribe.
           </p>
           <p className="mt-3 text-sm text-gray-700 h-5 text-center">{smsMsg}</p>
         </div>
@@ -245,15 +267,26 @@ function HomePage() {
           <div className="space-y-8">
             <div>
               <h3 className="font-semibold text-lg mb-2">How fast can we see ROI?</h3>
-              <p className="text-gray-600">Most clients report measurable returns within 3–6 months after launch.</p>
+              <p className="text-gray-600">
+                Most clients report measurable returns within 3–6 months after launch.
+              </p>
             </div>
             <div>
-              <h3 className="font-semibold text-lg mb-2">Are your solutions compliant with regulations?</h3>
-              <p className="text-gray-600">Yes. From HIPAA to SOC2 and GDPR, we embed compliance from the start.</p>
+              <h3 className="font-semibold text-lg mb-2">
+                Are your solutions compliant with regulations?
+              </h3>
+              <p className="text-gray-600">
+                Yes. From HIPAA to SOC2 and GDPR, we embed compliance from the start.
+              </p>
             </div>
             <div>
-              <h3 className="font-semibold text-lg mb-2">Do you only work with large enterprises?</h3>
-              <p className="text-gray-600">No—our specialty is helping SMBs gain the same competitive edge as enterprise players, at a fraction of the cost.</p>
+              <h3 className="font-semibold text-lg mb-2">
+                Do you only work with large enterprises?
+              </h3>
+              <p className="text-gray-600">
+                No—our specialty is helping SMBs gain the same competitive edge as
+                enterprise players, at a fraction of the cost.
+              </p>
             </div>
           </div>
         </div>
@@ -271,11 +304,6 @@ function HomePage() {
           © {new Date().getFullYear()} Zaragoza Partners — Software That Works as Hard as You Do
         </p>
       </footer>
-    </div>
-  );
-}
-
-      <h1 className="text-3xl font-bold mb-4">Hello from HomePage</h1>
     </div>
   );
 }
