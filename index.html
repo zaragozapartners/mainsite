@@ -7,7 +7,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- While debugging, use the dev builds for clearer errors -->
+  <!-- Dev builds show readable errors in console -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
@@ -16,9 +16,8 @@
 <body class="min-h-screen bg-gray-50 text-gray-900">
   <div id="root"></div>
 
-  <!-- Load App first (defines HomePage) -->
+  <!-- Load App first, then mount -->
   <script type="text/babel" src="./app.jsx"></script>
-  <!-- Then mount it -->
   <script type="text/babel" src="./index.jsx"></script>
 </body>
 </html>
