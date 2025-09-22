@@ -1,3 +1,6 @@
+// index.jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HomePage />);
 // app.jsx  — no imports/exports, works with index.html + Babel Standalone
 
 // Minimal Button component
