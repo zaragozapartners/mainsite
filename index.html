@@ -8,9 +8,9 @@
   <!-- Tailwind via CDN (no build) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React 18 + ReactDOM UMD -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- React 18 + ReactDOM (production UMD builds) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
   <!-- Babel Standalone to transpile JSX in the browser -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -18,14 +18,8 @@
 <body class="min-h-screen bg-gray-50 text-gray-900">
   <div id="root"></div>
 
-  <!-- Your JSX file; note type="text/babel" -->
+  <!-- Load your JSX files in order -->
   <script type="text/babel" src="./app.jsx"></script>
-
-  <!-- Mount -->
-  <script type="text/babel">
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    // Assumes your component is named App (see app.jsx below)
-    root.render(<App />);
-  </script>
+  <script type="text/babel" src="./index.jsx"></script>
 </body>
 </html>
