@@ -1,8 +1,31 @@
-import { Button } from "@/components/ui/button";
-import { Shield, TrendingUp, Layers, CheckCircle, BarChart3, ArrowUpRight, Cloud, Lock, Cpu, Users, Database } from "lucide-react";
-import { motion } from "framer-motion";
+// app.jsx  — no imports/exports, works with index.html + Babel Standalone
 
-export default function HomePage() {
+// Minimal Button component
+function Button({ className = "", children, ...props }) {
+  return (
+    <button
+      className={
+        "inline-flex items-center justify-center rounded px-4 py-2 font-semibold " +
+        className
+      }
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+// Tiny helper for fake submit UX
+function fakeAction(setter, okText = "Thanks! You’re on the list.") {
+  setter("Submitting…");
+  setTimeout(() => setter(okText), 800);
+}
+
+function HomePage() {
+  const [smsMsg, setSmsMsg] = React.useState("");
+  const [caseMsg, setCaseMsg] = React.useState("");
+  const [heroMsg, setHeroMsg] = React.useState("");
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
       {/* Hero Section */}
@@ -10,23 +33,23 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-slate-900"></div>
         <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight"
-            >
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
               Software That Works as Hard as You Do
-            </motion.h1>
+            </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
               Custom software that streamlines operations, lowers costs, and helps SMBs compete head-to-head with the big players.
             </p>
-            <Button size="lg" className="bg-blue-600 text-white font-semibold shadow-lg">
+            <Button
+              onClick={() => fakeAction(setHeroMsg, "We’ll reach out shortly!")}
+              className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
+            >
               Schedule a Strategy Call
             </Button>
+            <p className="mt-3 text-sm text-gray-300 h-5">{heroMsg}</p>
           </div>
           <div className="relative">
             <div className="bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
-              <span className="block h-[400px] flex items-center justify-center text-gray-400">
+              <span className="block h-[400px] flex items-center justify-center text-gray-400 px-6 text-center">
                 [Mockup: Manager juggling multiple disconnected apps/spreadsheets]
               </span>
             </div>
@@ -44,7 +67,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="bg-gray-100 rounded-2xl h-80 flex items-center justify-center shadow-md">
-            <span className="text-gray-400">[Image: Stressed manager juggling multiple disconnected apps/spreadsheets]</span>
+            <span className="text-gray-400 px-6 text-center">[Image: Stressed manager juggling multiple disconnected apps/spreadsheets]</span>
           </div>
         </div>
       </section>
@@ -53,7 +76,7 @@ export default function HomePage() {
       <section className="py-24 px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="bg-white rounded-2xl shadow-md h-80 flex items-center justify-center border border-gray-200">
-            <span className="text-gray-400">[Dashboard mockup showing cost savings + efficiency metrics]</span>
+            <span className="text-gray-400 px-6 text-center">[Dashboard mockup showing cost savings + efficiency metrics]</span>
           </div>
           <div>
             <h2 className="text-3xl font-bold mb-6">Software That Pays for Itself</h2>
@@ -68,17 +91,17 @@ export default function HomePage() {
       <section className="py-24 px-8 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center">
           <div>
-            <ArrowUpRight className="h-10 w-10 text-blue-700 mx-auto mb-4" />
+            <div className="h-10 w-10 mx-auto mb-4">↗️</div>
             <h3 className="font-semibold text-xl mb-2">Faster ROI</h3>
             <p className="text-gray-600">See measurable outcomes within months, not years.</p>
           </div>
           <div>
-            <Cloud className="h-10 w-10 text-blue-700 mx-auto mb-4" />
+            <div className="h-10 w-10 mx-auto mb-4">☁️</div>
             <h3 className="font-semibold text-xl mb-2">Seamless Scaling</h3>
             <p className="text-gray-600">A platform that grows with your business, without costly re-platforming.</p>
           </div>
           <div>
-            <Lock className="h-10 w-10 text-blue-700 mx-auto mb-4" />
+            <div className="h-10 w-10 mx-auto mb-4">🔒</div>
             <h3 className="font-semibold text-xl mb-2">Enterprise-Level Security</h3>
             <p className="text-gray-600">Compliance and data protection built in from day one.</p>
           </div>
@@ -103,11 +126,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Case Study with Data Visualization */}
+      {/* Case Study */}
       <section className="py-24 px-8 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="bg-slate-50 rounded-2xl shadow-md h-80 flex items-center justify-center border border-gray-200">
-            <span className="text-gray-400">[Bar chart showing cost savings before/after automation]</span>
+            <span className="text-gray-400 px-6 text-center">[Bar chart showing cost savings before/after automation]</span>
           </div>
           <div>
             <h2 className="text-3xl font-bold mb-6">Logistics Firm Saves $200k Annually</h2>
@@ -116,9 +139,13 @@ export default function HomePage() {
               cutting annual operating costs by <span className="font-semibold">$200,000</span> while
               improving service delivery speed.
             </p>
-            <Button size="lg" className="bg-blue-600 text-white font-semibold shadow-md">
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white shadow-md"
+              onClick={() => fakeAction(setCaseMsg, "Opening… (pretend)")}
+            >
               Read the Full Case Study
             </Button>
+            <p className="mt-3 text-sm text-gray-600 h-5">{caseMsg}</p>
           </div>
         </div>
       </section>
@@ -129,17 +156,17 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold mb-12">Enterprise-Grade Tools, Tailored for SMB Agility</h2>
           <div className="grid md:grid-cols-3 gap-12 text-center">
             <div>
-              <Cpu className="h-10 w-10 text-blue-700 mx-auto mb-4" />
+              <div className="h-10 w-10 mx-auto mb-4">🧠</div>
               <h3 className="font-semibold text-lg mb-2">Modern Frameworks</h3>
               <p className="text-gray-600">React, Node.js, Next.js, and TypeScript for reliable, modern apps.</p>
             </div>
             <div>
-              <Database className="h-10 w-10 text-blue-700 mx-auto mb-4" />
+              <div className="h-10 w-10 mx-auto mb-4">🗄️</div>
               <h3 className="font-semibold text-lg mb-2">Scalable Infrastructure</h3>
               <p className="text-gray-600">AWS, Kubernetes, and serverless architectures built to scale.</p>
             </div>
             <div>
-              <Shield className="h-10 w-10 text-blue-700 mx-auto mb-4" />
+              <div className="h-10 w-10 mx-auto mb-4">🛡️</div>
               <h3 className="font-semibold text-lg mb-2">Security & Compliance</h3>
               <p className="text-gray-600">SOC2, HIPAA, and GDPR compliance built from the start.</p>
             </div>
@@ -177,7 +204,6 @@ export default function HomePage() {
           <blockquote className="text-2xl font-medium text-gray-800 mb-6 leading-relaxed">
             “Zaragoza Partners delivered a SaaS platform that transformed our operations. The ROI was clear within 6 months.”
           </blockquote>
-          <p className="text-gray-600 font-semibold">— Jane D., CEO of LogisticsCo</p>
         </div>
       </section>
 
@@ -191,16 +217,21 @@ export default function HomePage() {
         </p>
         <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6">
           <input
+            id="smsInput"
             type="tel"
             placeholder="Enter your phone number"
             className="w-full px-4 py-3 rounded-lg text-gray-900 mb-4 border border-gray-300"
           />
-          <Button size="lg" className="bg-blue-900 text-white font-semibold shadow-md w-full">
+          <Button
+            className="bg-blue-900 hover:bg-blue-800 text-white w-full shadow-md"
+            onClick={() => fakeAction(setSmsMsg, "Thanks! We’ll text you shortly.")}
+          >
             Opt-In via SMS
           </Button>
           <p className="text-xs text-gray-600 mt-4">
             By providing your number, you agree to receive SMS messages from Zaragoza Partners. Message and data rates may apply. Text STOP at any time to unsubscribe.
           </p>
+          <p className="mt-3 text-sm text-gray-700 h-5 text-center">{smsMsg}</p>
         </div>
       </section>
 
@@ -233,7 +264,9 @@ export default function HomePage() {
           <a href="#" className="hover:text-white">Case Studies</a>
           <a href="#" className="hover:text-white">Contact</a>
         </nav>
-        <p className="text-sm">© {new Date().getFullYear()} Zaragoza Partners — Software That Works as Hard as You Do</p>
+        <p className="text-sm">
+          © {new Date().getFullYear()} Zaragoza Partners — Software That Works as Hard as You Do
+        </p>
       </footer>
     </div>
   );
