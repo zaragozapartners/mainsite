@@ -285,9 +285,9 @@ function HomePage() {
           <h2 className="text-3xl font-bold mb-12 text-center">Meet the Team</h2>
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
-              <img src="./images/profile1.png" alt="Alex Zaragoza" className="w-32 h-32 rounded-full object-cover mx-auto mb-4" />
-              <h3 className="font-semibold text-lg">Alex Zaragoza</h3>
-              <p className="text-gray-600">Founder & CEO</p>
+              <img src="./images/profile1.png" alt="CEO" className="w-32 h-32 rounded-full object-cover mx-auto mb-4" />
+              <h3 className="font-semibold text-lg">Julian Farley</h3>
+              <p className="text-gray-600">Co-Founder & CEO</p>
             </div>
             <div className="text-center">
               <img src="./images/profile3.png" alt="Maria Lopez" className="w-32 h-32 rounded-full object-cover mx-auto mb-4" />
