@@ -99,6 +99,11 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-slate-900"></div>
         <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
+            <img
+    src="./images/logo-zp.png"
+    alt="Zaragoza Partners logo"
+    className="h-12 mb-8"
+  />
             <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
               Software That Works as Hard as You Do
             </h1>
