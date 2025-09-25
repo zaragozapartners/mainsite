@@ -214,11 +214,13 @@ function HomePage() {
       {/* 6) Case Study — keep text; (image already used above) */}
       <section className="py-24 px-8 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="bg-slate-50 rounded-2xl shadow-md h-80 flex items-center justify-center border border-gray-200">
-            <span className="text-gray-500 px-6 text-center">
-              Case study visuals or chart could go here.
-            </span>
-          </div>
+          <div className="bg-slate-50 rounded-2xl shadow-md h-80 flex items-center justify-center border border-gray-200 overflow-hidden">
+  <img
+    src="./images/highlights.png"
+    alt="Visual highlights of Zaragoza case study"
+    className="w-full h-full object-cover"
+  />
+</div>
           <div>
             <h2 className="text-3xl font-bold mb-6">Logistics Firm Saves $200k Annually</h2>
             <p className="text-gray-700 mb-6">
